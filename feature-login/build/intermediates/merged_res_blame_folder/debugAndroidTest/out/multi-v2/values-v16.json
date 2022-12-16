@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.ddd.pollpoll.feature.login.test.feature-login-mergeDebugAndroidTestResources-58:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/wschoi01/.gradle/caches/transforms-3/a2f07494cca202c1eedd6b318ef595b0/transformed/core-1.9.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}
