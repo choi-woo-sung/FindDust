@@ -1,4 +1,4 @@
-package com.ddd.pollpoll.core.model
+package com.ddd.pollpoll.network.model
 
 data class Dust(
     val response: Response

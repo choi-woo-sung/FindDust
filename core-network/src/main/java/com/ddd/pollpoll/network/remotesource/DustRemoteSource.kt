@@ -1,6 +1,6 @@
 package com.ddd.pollpoll.network.remotesource
 
-import com.ddd.pollpoll.core.model.Dust
+import com.ddd.pollpoll.network.model.Dust
 import com.ddd.pollpoll.network.api.DustAPI
 import javax.inject.Inject
 

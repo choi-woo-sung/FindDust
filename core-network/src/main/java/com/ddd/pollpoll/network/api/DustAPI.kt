@@ -1,6 +1,6 @@
 package com.ddd.pollpoll.network.api
 
-import com.ddd.pollpoll.core.model.Dust
+import com.ddd.pollpoll.network.model.Dust
 import retrofit2.http.Field
 import retrofit2.http.GET
 
