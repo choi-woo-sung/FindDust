@@ -47,6 +47,16 @@
             <meta-data
                 android:name="com.ddd.pollpoll.initalizer.TimberInitializer"
                 android:value="androidx.startup" />
+
+            <meta-data
+                android:name="com.ddd.pollpoll.initalizer.SyncInitializer"
+                android:value="androidx.startup"
+                />
+            <meta-data
+                android:name="androidx.work.impl.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+
         </provider>
     </application>
 

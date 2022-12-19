@@ -2,7 +2,8 @@ package com.ddd.pollpoll.initalizer
 
 import android.content.Context
 import androidx.startup.Initializer
-
+import com.ddd.pollpoll.BuildConfig
+import com.ddd.pollpoll.timber.DustDebugTree
 import timber.log.Timber
 
 class TimberInitializer : Initializer<Unit> {

@@ -1,18 +1,18 @@
 package com.ddd.pollpoll.network.remotesource
 
-import com.ddd.pollpoll.network.model.Dust
 import com.ddd.pollpoll.network.api.DustAPI
+import com.ddd.pollpoll.network.model.NetworkDust
 import javax.inject.Inject
 
 interface DustRemoteSource {
-    suspend fun fetchDustList(numOfRows: Int, pageNo: Int, sidoName: String): Dust
+    suspend fun fetchDustList(numOfRows: Int, pageNo: Int, sidoName: String): NetworkDust
 }
 
 class DustRemoteSourceImp @Inject constructor(
     private val api: DustAPI
 ) : DustRemoteSource {
 
-    override suspend fun fetchDustList(numOfRows: Int, pageNo: Int, sidoName: String): Dust {
+    override suspend fun fetchDustList(numOfRows: Int, pageNo: Int, sidoName: String): NetworkDust {
         return api.fetchDustList(
             serviceKey = API_KEY,
             returnType = RETURN_TYPE,

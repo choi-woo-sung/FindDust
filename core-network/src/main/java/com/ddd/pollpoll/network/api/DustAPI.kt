@@ -1,6 +1,6 @@
 package com.ddd.pollpoll.network.api
 
-import com.ddd.pollpoll.network.model.Dust
+import com.ddd.pollpoll.network.model.NetworkDust
 import retrofit2.http.Field
 import retrofit2.http.GET
 
@@ -13,5 +13,5 @@ interface DustAPI {
         @Field("numOfRows") numOfRows: Int,
         @Field("pageNo") pageNo: Int,
         @Field("sidoName") sidoName: String
-    ): Dust
+    ): NetworkDust
 }

@@ -58,7 +58,7 @@ android {
     buildFeatures {
         compose = true
         aidl = false
-        buildConfig = false
+        buildConfig = true
         renderScript = false
         shaders = false
     }
@@ -89,6 +89,10 @@ dependencies {
     //팀버
     implementation(libs.timber)
     implementation(libs.androidx.startup)
+
+    implementation(libs.androidx.work.ktx)
+    implementation(libs.hilt.ext.work)
+    androidTestImplementation(libs.androidx.work.testing)
 
     // Hilt Dependency Injection
     implementation(libs.hilt.android)

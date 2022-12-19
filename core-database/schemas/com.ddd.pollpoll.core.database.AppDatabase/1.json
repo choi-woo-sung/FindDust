@@ -2,30 +2,138 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "bc07e5e8aa704a31a9b0a7811e9d62be",
+    "identityHash": "f7635d6678b2c56eb8d2215dafced4c1",
     "entities": [
       {
-        "tableName": "Login",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "tableName": "DustEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`coFlag` TEXT NOT NULL, `coGrade` TEXT NOT NULL, `coValue` TEXT NOT NULL, `dataTime` TEXT NOT NULL, `khaiGrade` TEXT NOT NULL, `khaiValue` TEXT NOT NULL, `no2Flag` TEXT NOT NULL, `no2Grade` TEXT NOT NULL, `no2Value` TEXT NOT NULL, `o3Flag` TEXT NOT NULL, `o3Grade` TEXT NOT NULL, `o3Value` TEXT NOT NULL, `pm10Flag` TEXT NOT NULL, `pm10Grade` TEXT NOT NULL, `pm10Value` TEXT NOT NULL, `sidoName` TEXT NOT NULL, `so2Flag` TEXT NOT NULL, `so2Grade` TEXT NOT NULL, `so2Value` TEXT NOT NULL, `stationName` TEXT NOT NULL, PRIMARY KEY(`stationName`))",
         "fields": [
           {
-            "fieldPath": "name",
-            "columnName": "name",
+            "fieldPath": "coFlag",
+            "columnName": "coFlag",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "uid",
-            "columnName": "uid",
-            "affinity": "INTEGER",
+            "fieldPath": "coGrade",
+            "columnName": "coGrade",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "coValue",
+            "columnName": "coValue",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataTime",
+            "columnName": "dataTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "khaiGrade",
+            "columnName": "khaiGrade",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "khaiValue",
+            "columnName": "khaiValue",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "no2Flag",
+            "columnName": "no2Flag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "no2Grade",
+            "columnName": "no2Grade",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "no2Value",
+            "columnName": "no2Value",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "o3Flag",
+            "columnName": "o3Flag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "o3Grade",
+            "columnName": "o3Grade",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "o3Value",
+            "columnName": "o3Value",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pm10Flag",
+            "columnName": "pm10Flag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pm10Grade",
+            "columnName": "pm10Grade",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pm10Value",
+            "columnName": "pm10Value",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sidoName",
+            "columnName": "sidoName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "so2Flag",
+            "columnName": "so2Flag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "so2Grade",
+            "columnName": "so2Grade",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "so2Value",
+            "columnName": "so2Value",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stationName",
+            "columnName": "stationName",
+            "affinity": "TEXT",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "uid"
+            "stationName"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -34,7 +142,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bc07e5e8aa704a31a9b0a7811e9d62be')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f7635d6678b2c56eb8d2215dafced4c1')"
     ]
   }
 }
