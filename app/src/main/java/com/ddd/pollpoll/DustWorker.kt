@@ -7,7 +7,6 @@ import androidx.work.ForegroundInfo
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkerParameters
 import com.ddd.pollpoll.core.data.repository.DustRepository
-import com.ddd.pollpoll.core.data.repositoryImp.DustRepositoryImp
 import com.ddd.pollpoll.initalizer.syncForegroundInfo
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
@@ -18,7 +17,7 @@ import kotlinx.coroutines.withContext
 class DustWorker @AssistedInject constructor(
     @Assisted private val appContext: Context,
     @Assisted workerParams: WorkerParameters,
-    val dustRepository: DustRepositoryImp
+    val dustRepository: DustRepository
 ) : CoroutineWorker(appContext, workerParams) {
 
     override suspend fun getForegroundInfo(): ForegroundInfo = appContext.syncForegroundInfo()

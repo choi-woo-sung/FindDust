@@ -34,13 +34,3 @@ interface RepositoryModule {
         dustRepositoryImp: DustRepositoryImp
     ): DustRepository
 }
-
-// class FakeLoginRepository @Inject constructor() : LoginRepository {
-//    override val logins: Flow<List<String>> = flowOf(fakeLogins)
-//
-//    override suspend fun add(name: String) {
-//        throw NotImplementedError()
-//    }
-// }
-//
-// val fakeLogins = listOf("One", "Two", "Three")

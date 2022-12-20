@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.ddd.pollpoll.PollPoll
 import dagger.hilt.android.AndroidEntryPoint
 import com.ddd.pollpoll.core.ui.MyApplicationTheme
 
@@ -31,10 +32,12 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        (this.application as PollPoll)
         setContent {
             MyApplicationTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().snowfall(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     MainNavigation()

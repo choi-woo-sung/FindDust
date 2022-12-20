@@ -17,42 +17,38 @@
 package com.ddd.pollpoll.initalizer
 
 import android.content.Context
-import android.util.Log
 import androidx.startup.AppInitializer
 import androidx.startup.Initializer
-import androidx.work.Configuration
+import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
-import androidx.work.WorkManagerInitializer
-import com.ddd.pollpoll.BuildConfig
-import com.ddd.pollpoll.module.WorkManagerInitializerEntryPoint
-import dagger.hilt.android.EntryPointAccessors
+import com.ddd.pollpoll.DustWorker
 
+// This name should not be changed otherwise the app may have concurrent sync requests running
 internal const val SyncWorkName = "SyncWorkName"
 
 object Sync {
-
+    // This method is a workaround to manually initialize the sync process instead of relying on
+    // automatic initialization with Androidx Startup. It is called from the app module's
+    // Application.onCreate() and should be only done once.
     fun initialize(context: Context) {
         AppInitializer.getInstance(context)
             .initializeComponent(SyncInitializer::class.java)
     }
 }
 
-class SyncInitializer : Initializer<WorkManager> {
+class SyncInitializer : Initializer<Unit> {
 
-    override fun create(context: Context): WorkManager {
-        val entryPoint = EntryPointAccessors.fromApplication(
-            context,
-            WorkManagerInitializerEntryPoint::class.java
-        )
-
-        val configuration = Configuration
-            .Builder()
-            .setWorkerFactory(entryPoint.hiltWorkerFactory())
-            .setMinimumLoggingLevel(if (BuildConfig.DEBUG) Log.DEBUG else Log.INFO)
-            .build()
-        WorkManager.initialize(context, configuration)
-        return WorkManager.getInstance(context)
+    override fun create(context: Context) {
+        WorkManager.getInstance(context).apply {
+            // Run sync on app startup and ensure only one sync worker runs at any time
+            enqueueUniqueWork(
+                SyncWorkName,
+                ExistingWorkPolicy.KEEP,
+                DustWorker.startUpSyncWork()
+            )
+        }
     }
 
-    override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()
+    override fun dependencies(): MutableList<Class<out Initializer<*>>> = mutableListOf()
+
 }

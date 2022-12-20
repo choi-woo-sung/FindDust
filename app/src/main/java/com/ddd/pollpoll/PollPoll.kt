@@ -18,19 +18,27 @@ package com.ddd.pollpoll
 
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
-import com.ddd.pollpoll.initalizer.Sync
+import androidx.work.Configuration
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import dagger.hilt.android.HiltAndroidApp
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @HiltAndroidApp
-class PollPoll : Application() {
+class PollPoll : Application() /*Configuration.Provider*/ {
 
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
 
-    override fun onCreate() {
-        Sync.initialize(context = this)
-        
-        super.onCreate()
+    fun enqueueSyncWork() {
+        val request = PeriodicWorkRequestBuilder<DustWorker>(15, TimeUnit.MINUTES)
+            .build()
+        WorkManager.getInstance(applicationContext).enqueue(request)
     }
+
+//    override fun getWorkManagerConfiguration(): Configuration =
+//        Configuration.Builder()
+//            .setWorkerFactory(workerFactory)
+//            .build()
 }
