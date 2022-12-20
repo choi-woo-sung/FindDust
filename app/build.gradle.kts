@@ -92,17 +92,21 @@ dependencies {
 
     implementation(libs.androidx.work.ktx)
     implementation(libs.hilt.ext.work)
+
+    kapt(libs.hilt.compiler)
+    kaptAndroidTest(libs.hilt.android.compiler)
+    kapt(libs.hilt.ext.compiler)
+
     androidTestImplementation(libs.androidx.work.testing)
 
     // Hilt Dependency Injection
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
     // Hilt and instrumented tests.
     androidTestImplementation(libs.hilt.android.testing)
-    kaptAndroidTest(libs.hilt.android.compiler)
     // Hilt and Robolectric tests.
     testImplementation(libs.hilt.android.testing)
     kaptTest(libs.hilt.android.compiler)
+    kapt(libs.hilt.android.compiler)
 
     // Arch Components
     implementation(libs.androidx.lifecycle.viewmodel.compose)

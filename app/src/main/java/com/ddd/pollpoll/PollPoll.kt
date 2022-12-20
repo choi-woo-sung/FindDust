@@ -18,19 +18,19 @@ package com.ddd.pollpoll
 
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
-import androidx.work.Configuration
+import com.ddd.pollpoll.initalizer.Sync
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
 @HiltAndroidApp
-class PollPoll : Application(), androidx.work.Configuration.Provider {
+class PollPoll : Application() {
 
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
-    override fun getWorkManagerConfiguration(): Configuration =
-        Configuration.Builder()
-            .setWorkerFactory(workerFactory)
-            .build()
 
-
+    override fun onCreate() {
+        Sync.initialize(context = this)
+        
+        super.onCreate()
+    }
 }
