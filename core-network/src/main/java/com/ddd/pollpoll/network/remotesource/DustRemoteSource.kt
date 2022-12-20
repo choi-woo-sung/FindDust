@@ -16,15 +16,14 @@ class DustRemoteSourceImp @Inject constructor(
         return api.fetchDustList(
             serviceKey = API_KEY,
             returnType = RETURN_TYPE,
-            numOfRows = 0,
-            pageNo = 0,
-            sidoName = sidoName
+            numOfRows = 1000,
+            pageNo = 1,
+            sidoName = "전체"
         )
     }
 
     companion object {
-        const val API_KEY =
-            "LL0SSOpdVJrjj%2FOgFhTFxrEKFzVyJxrCKUyNncefeNLGGocos9LR2BNrSRB5RlWI1F0yqEfIrGMOY26ccNZ7fA%3D%3D"
+        const val API_KEY = "LL0SSOpdVJrjj/OgFhTFxrEKFzVyJxrCKUyNncefeNLGGocos9LR2BNrSRB5RlWI1F0yqEfIrGMOY26ccNZ7fA=="
         const val RETURN_TYPE = "json"
     }
 }

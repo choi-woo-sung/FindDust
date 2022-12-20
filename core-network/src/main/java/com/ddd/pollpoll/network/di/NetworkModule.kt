@@ -32,7 +32,7 @@ object NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty/")
+            .baseUrl("https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
