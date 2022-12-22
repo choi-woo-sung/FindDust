@@ -4,7 +4,7 @@ import com.ddd.pollpoll.network.model.NetworkDust
 import retrofit2.http.Field
 import retrofit2.http.GET
 
-interface DustAPI {
+internal interface DustAPI {
 
     @GET("/getCtprvnRltmMesureDnsty")
     suspend fun fetchDustList(

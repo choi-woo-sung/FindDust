@@ -8,7 +8,7 @@ interface DustRemoteSource {
     suspend fun fetchDustList(numOfRows: Int, pageNo: Int, sidoName: String): NetworkDust
 }
 
-class DustRemoteSourceImp @Inject constructor(
+internal class DustRemoteSourceImp @Inject constructor(
     private val api: DustAPI
 ) : DustRemoteSource {
 

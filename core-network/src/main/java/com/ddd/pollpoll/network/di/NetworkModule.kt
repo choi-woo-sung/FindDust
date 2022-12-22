@@ -39,7 +39,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideFindDustService(retrofit: Retrofit): DustAPI {
+    internal fun provideFindDustService(retrofit: Retrofit): DustAPI {
         return retrofit.create(DustAPI::class.java)
     }
 }
