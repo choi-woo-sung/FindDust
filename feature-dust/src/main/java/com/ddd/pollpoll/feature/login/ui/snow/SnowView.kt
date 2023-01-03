@@ -66,7 +66,7 @@ fun IntSize.randomPosition() =
     Offset(width.random().toFloat(), height.random().toFloat())
 
 // 빽빽도
-private const val snowflakeDensity = 0.01
+private const val snowflakeDensity = 0.3
 private val incrementRange = 0.4f..0.8f
 private val sizeRange = 5.0f..12.0f
 private const val angleSeed = 25.0f

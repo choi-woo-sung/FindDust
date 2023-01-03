@@ -1,3 +1,7 @@
+import java.io.File
+import java.io.FileInputStream
+import java.util.*
+
 /*
  * Copyright (C) 2022 The Android Open Source Project
  *
@@ -21,6 +25,11 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
 }
 
+val prop = Properties().apply {
+    load(FileInputStream(File(rootProject.rootDir, "local.properties")))
+}
+println("Property:" + prop.getProperty("API_KEY"))
+
 android {
     namespace = "com.example.core_network"
     compileSdk = 33
@@ -29,13 +38,15 @@ android {
         minSdk = 21
         targetSdk = 33
 
+        buildConfigField("String", "API_KEY", prop.getProperty("API_KEY"))
+
         testInstrumentationRunner = "com.ddd.pollpoll.core.testing.HiltTestRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildFeatures {
+        buildConfig = true
         aidl = false
-        buildConfig = false
         renderScript = false
         shaders = false
     }
@@ -66,5 +77,4 @@ dependencies {
     // Local tests: jUnit, coroutines, Android runner
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
-
 }

@@ -1,3 +1,5 @@
+
+
 /*
  * Copyright (C) 2022 The Android Open Source Project
  *
@@ -22,6 +24,8 @@ plugins {
     alias(libs.plugins.hilt.gradle)
 }
 
+
+
 android {
     namespace = "com.ddd.pollpoll"
     compileSdk = 33
@@ -32,6 +36,8 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
+
+
 
         testInstrumentationRunner = "com.ddd.pollpoll.core.testing.HiltTestRunner"
         vectorDrawables {
@@ -86,7 +92,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
 
-    //팀버
+    // 팀버
     implementation(libs.timber)
     implementation(libs.androidx.startup)
 

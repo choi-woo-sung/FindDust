@@ -2,7 +2,9 @@ package com.ddd.pollpoll.network.remotesource
 
 import com.ddd.pollpoll.network.api.DustAPI
 import com.ddd.pollpoll.network.model.NetworkDust
+import com.example.core_network.BuildConfig
 import javax.inject.Inject
+
 
 interface DustRemoteSource {
     suspend fun fetchDustList(numOfRows: Int, pageNo: Int, sidoName: String): NetworkDust
@@ -14,7 +16,7 @@ internal class DustRemoteSourceImp @Inject constructor(
 
     override suspend fun fetchDustList(numOfRows: Int, pageNo: Int, sidoName: String): NetworkDust {
         return api.fetchDustList(
-            serviceKey = API_KEY,
+            serviceKey = BuildConfig.API_KEY,
             returnType = RETURN_TYPE,
             numOfRows = 1000,
             pageNo = 1,
@@ -23,7 +25,6 @@ internal class DustRemoteSourceImp @Inject constructor(
     }
 
     companion object {
-        const val API_KEY = "LL0SSOpdVJrjj/OgFhTFxrEKFzVyJxrCKUyNncefeNLGGocos9LR2BNrSRB5RlWI1F0yqEfIrGMOY26ccNZ7fA=="
         const val RETURN_TYPE = "json"
     }
 }
